@@ -1,0 +1,109 @@
+GIT
+
+Directory
+Terminal
+CLI- command line interface
+cd - change directory
+
+
+GIT COMMAND:
+
+CLONE -  Bring a repository that is hosted somewhere like github into a folder on
+our local machine
+
+add - Track the files and changes in Git
+
+commit -  Save your files in Git
+
+push -  Upload Git commit to a remote repo like Github
+
+pull - Download changes from remote repo to your local machine
+
+In Github, create a new repository
+
+README.md file tells about the project details. md stands for markdown.
+
+To check the history of the commit: click on the commits under the repository. Its has unique identifier.
+
+Version - ~ git --version
+
+ls -la : shows all the files including hidden files
+
+Track the changes made to the file:
+
+~ git status
+
+Create index.html, save this file using command 
+~git add . or ~git add index.html // we use .(period) to add all the files or only the file that we want to save.
+
+Make changes to the file index.html.
+When we use git status: it will track the changes.
+
+
+Now, if we create new file 
+this command git status doesn't track the newly created file.
+
+Save the file:
+~git add . or ~git add nameofthefile
+
+Now, we check the status:
+~git status
+// Displays the which files are modified and new file.
+
+
+Commit:
+~git commit -m "message"
+-m: message for the command
+message: should be meaningful
+With this command, the file are saved in local machine not on remote repository.
+
+Push: Pushes the files to the remote repository.
+~git push
+
+
+SSH KEYS:
+To prove to GitHub that I'm the owner of the account.
+We need to generate the SSH keys locally using command.
+
+~ssh-keygen -t rsa -b 4096 -C "email@example.com" 
+
+Generates public/private rsa key pair.
+Enter file in which to save the key (Users/gwen/.ssh/id_rsa): Give a name of the file(testKey)
+password:
+
+
+-t type of encryption: which is rsa
+-b strength of encryption: which is 4096
+
+To know the generated key:
+~ ls | grep testkey
+testkey // it is private key *not to share // We use this to show github that i am the owner
+testkey.pub // it is public key
+
+Print out the pubic key:
+~ cat testkey.pub
+
+To copy the command:
+~ pbcopy < name of the path // ~ pbcopy < ~/testkey.pub
+
+
+Now goto Github:
+give this key to SSH keys and save it.
+
+Then the local machine have to know that ssh key is created
+
+Adding your SSH key to the ssh-agent
+
+~ eval "$(ssh-agent -s)"
+// output in terminal: agent pid 41515
+
+in Mac we need to change this file: "~/.ssh/config"
+To edit a file:
+~ vim ~/.ssh/config
+paste these lines:
+
+Host *
+	AddKeysToAgent yes
+	UseKeyChain yes
+	IdentityFile ~/.ssh/id_rsa
+

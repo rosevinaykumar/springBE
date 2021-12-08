@@ -1,0 +1,74 @@
+Angular
+Is a platform and framework used to create single page client application using HTML and Typescript.
+Built in features like Dependency injection, two way data binding etc.
+is used to create single page application.
+it is modular in nature.
+
+JDBC: 
+https://www.tutorialspoint.com/jdbc/jdbc-statements.html
+is the standard for database access. Using it we can do all CRUD operations, and sql statements like select, insert, delete and update. 
+It is also supports the query statements like select with joining with workloads  etc. Additionally, stored procedures can be invoked through jdbc connections.
+Once the connection is established with the DB, we can interact with DB. The JDBC statements, prepared statement and callable statements interfaces defines method and properties
+that enable to send SQL commands and receive data from the database.
+Statement: Useful for static SQL COMMANDS. this interface cannot use parameters at runtime.
+Prepared Statement: Useful when we plan to use the SQL commands many times. Accepts input parameters at runtime.
+Callable Statement: Useful when we want to access the database stored procedures. Also accepts input parameters at runtime.
+DRAWBACK OF JDBC: Is lot of crappy code and lot of mapping with the data sets and objects occur logic is mixed with SQL.
+
+JPA: Is specification allows to map between the object in the code and database tables. this specification can hide the sql from the developer. so we deal with the java classes and 
+provider allows us to save them and load them.
+Still using JPA, we have to specify the table name, column name etc using java annotation. JPA is not a tool or framework, its just a specification.
+
+HIBERNATE: JPA is just a specification/interface , to implement these we use tool called HIBERNATE OR MYBATIS etc. We can use HQL hibernate query language to write sql statements.
+
+SPRING DATA JPA: is used to reduce the lot amount of boilerplate code required to implement data access layers for various databases. Spring Data JPA is a library which
+provides extra layer of abstraction on the top of the JPA Provider like hibernate. By default the S D J uses Hibernate as a provider.  We can change to another ORM implementation
+by changing in the settings. If we use Spring Boot, it will auto configuration don't need for the connection pool and connection properties, only we need to give database name, username and password in the application properties 
+file. 
+With Spring data jpa interface which extends JPAREPOSITORY, CRUDREPOSITORY and we will have all crud methods like select, save, delete, update out of the box.
+
+JPA VS SPRING DATA JPA
+JPA is a specification and HIBERNATE is the implementation of that specification.
+JPA is a specification for persisting the java objects to a relational databases using ORM technology.
+Theses implementations are usually referred as PROVIDERS.
+
+Spring Boot:
+To develop REST web services and microservices.
+With Spring boot we can start the application development with zero configuration and setup time by adding the required dependency to the project.
+
+
+Project architecture:
+
+View -  Component - Service --- http client -- Spring Rest Controller - Spring Data JPA --- MySQL
+
+At persistence layer we use Spring Data JPA. This JPA internally uses Hibernate as a JPA provider and it export all the database 
+operations to the particular entity. We reduce lot of boiler code.
+
+Spring Rest Controller we use Spring MVC to develop and expose the rest end points.
+
+Angular 
+
+In view, we use HTML to display the content.
+Component, we create properties and method for the logic, we use two way binding with the view.
+Service, we create the required service for a functionality and will inject into the component.
+Angular has it own http module to make rest api call.
+
+Tools:
+Angular 10, Visual code studio, typescript, Bootstrap 4+, NodeJS and NPM, Angular CLI.
+Spring 2.0+, Spring Data JPA/Hibernate, Maven 3.2+, JDk 1.8, Embedded Tomcat 8.5+, MySQL database.
+
+TYPESCRIPT: Is super set of javascript supports type safety and tooling. Browser can't understand typescripting it need to be transpiled to JS using TSC compiler.
+
+WHY NODEJS IN ANGULAR APPLICATION?
+NodeJs is not mandatory for the angular application, but using it makes in the development of the application. NPM comes with the NODEJS by default which manages the dependencies for 
+the application. NPM gives us angular cli (ng command) which is a great tool for the developing application easily.
+NodeJs also  provides lightweight web server to host the application in the local machine.
+
+DATABASE CONNECTION:
+spring.jpa.hibernate.ddl-auto: can be 
+none: no changes made to the entity structure, 
+create: creates the database and does not close the it, 
+create-drop: create the database and drops when the sessionnfactory is closed, 
+update: updates the database according to the given entity structures
+for embedded database like h2 the default value is create drop and for mysql is none
+
