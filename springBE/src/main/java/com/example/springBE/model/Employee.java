@@ -22,11 +22,8 @@ public class Employee {
 	@Column
 	private String email;
 	
+	public Employee() {}
 	
-	public Employee() {
-		super();
-	}
-
 	public Employee(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;
